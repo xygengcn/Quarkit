@@ -1,0 +1,34 @@
+// 搜索框
+.main-search {
+  height: 56px;
+  background-color: transparent;
+  padding: 8px 50px 8px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  // logo
+  &-logo {
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 4px;
+  }
+
+  // 输入框
+  &-input {
+    height: 40px;
+    line-height: 40px;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: 20px;
+    outline: none;
+    cursor: text;
+    color: #fff;
+    -webkit-app-region: no-drag;
+  }
+}

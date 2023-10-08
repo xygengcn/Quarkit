@@ -1,0 +1,20 @@
+{
+  "name": "@quarkit/tauri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@quarkit/main": "workspace:^",
+    "@tauri-apps/cli": "^1.5.0"
+  },
+  "tauri": {
+    "appPath": "./tauri"
+  }
+}

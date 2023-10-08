@@ -1,0 +1,15 @@
+{
+  "name": "quarkit",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "husky": "husky install",
+    "re-install": "rm -rf ./{packages,services}/*/node_modules node_modules && pnpm i"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "husky": "^8.0.3"
+  }
+}
