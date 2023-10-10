@@ -14,13 +14,13 @@ export default class AppWindow {
       webPreferences: {
         allowRunningInsecureContent: false,
         nodeIntegration: true,
-        contextIsolation: false,
+        contextIsolation: true,
         webviewTag: true,
-        webSecurity: false,
+        webSecurity: true,
         devTools: true,
         plugins: true,
         scrollBounce: true,
-        experimentalFeatures: true,
+        experimentalFeatures: false,
         nodeIntegrationInSubFrames: true,
         preload: join(__dirname, '../preload/index.js')
       }

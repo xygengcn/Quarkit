@@ -29,6 +29,7 @@ module.exports = {
       }
     ],
     'linebreak-style': ['error', 'unix'],
-    semi: ['error', 'always']
+    semi: ['error', 'always'],
+    '@typescript-eslint/no-explicit-any': 0
   }
 };

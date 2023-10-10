@@ -1,16 +1,18 @@
+import { createProtocol } from '../../utils/create-protocol';
 import { isDevelopment } from '../../utils/index';
 import WindowManager from './window-manager';
-import { join } from 'path';
 
 /**
  * 创建主窗口
  * @returns
  */
 export function createMainWindow() {
+  //  注册伪协议
+  createProtocol('quarkit');
   //  启动的服务器地址
   const DEV_URL = 'http://localhost:8080';
   //  构建后的静态文件地址
-  const PRD_URL = `file://${join(__dirname, '../render/index.html')}`;
+  const PRD_URL = `quarkit://../render/index.html`;
   // 创建主主窗口
   return WindowManager.createAppWindow('MainWindow', isDevelopment() ? DEV_URL : PRD_URL, {
     width: 600,

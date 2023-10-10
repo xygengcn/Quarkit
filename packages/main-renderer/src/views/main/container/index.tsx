@@ -7,19 +7,6 @@ import './index.scss';
 export default defineComponent({
   name: 'MainContainer',
   setup() {
-    return () => (
-      <div class="main-container">
-        <ul>
-          <li>应用1</li>
-          <li>应用1</li>
-          <li>应用1</li>
-          <li>应用1</li>
-          <li>应用1</li>
-          <li>应用1</li>
-          <li>应用1</li>
-          <li>应用1</li>
-        </ul>
-      </div>
-    );
+    return () => <div class="main-container"></div>;
   }
 });
