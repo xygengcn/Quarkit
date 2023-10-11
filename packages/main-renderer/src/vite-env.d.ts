@@ -1,7 +1,11 @@
 /// <reference types="vite/client" />
+import type { IElectronPreload } from '@quarkit/electron';
 
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue';
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
+// 全局
+declare global {
+  interface Window {
+    __ELECTRON__: IElectronPreload;
+  }
 }
+
+export default global;

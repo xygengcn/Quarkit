@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "main": "dist/main/index.js",
+  "types": "typings/index.d.ts",
   "author": {
     "name": "xygengcn",
     "email": "xygengcn@gmail.com",

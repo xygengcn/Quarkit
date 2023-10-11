@@ -7,18 +7,12 @@
     "sourceMap": false,
     "outDir": "./dist",
     "declaration": true,
-    "resolveJsonModule":true,
+    "resolveJsonModule": true,
     "allowJs": true,
     "baseUrl": "./",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "types": ["node"],
-    "typeRoots": [
-      "src/typings/*",
-      "node_modules/@types"
-    ],
+    "typeRoots": ["typings/*", "node_modules/@types"],
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
@@ -27,7 +21,5 @@
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src","script"
-  ]
+  "include": ["src", "script", "typings"]
 }
