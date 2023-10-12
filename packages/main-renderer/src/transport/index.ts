@@ -1,7 +1,7 @@
 import type { Action, Message, NodeAction, NodeActionPromise } from '@quarkit/electron';
 import EventEmitter from 'eventemitter3';
 
-const { invoke, on } = window.__ELECTRON__;
+const { invoke, onHandler } = window.__ELECTRON__;
 
 /**
  * 渲染层消息处理中心
@@ -15,6 +15,8 @@ export default class Transport<T extends NodeAction = NodeAction> extends EventE
 
     // 跨项目实时通信
     this.broadcastChannel = this.createBoardcastChannel();
+
+    this.request = this.createRequest();
   }
   // 动作集合
   private actions: Map<string, Action> = new Map();
@@ -22,10 +24,13 @@ export default class Transport<T extends NodeAction = NodeAction> extends EventE
   // 跨项目实时通信
   private broadcastChannel: BroadcastChannel;
 
+  // 请求句柄
+  public request: NodeActionPromise<T>;
+
   /**
    * 请求
    */
-  public async request(name: string, ...params: any[]) {
+  public async invoke(name: string, ...params: any[]) {
     if (this.actions.has(name)) {
       const action = this.actions.get(name);
       return action?.call(undefined, ...params);
@@ -95,7 +100,7 @@ export default class Transport<T extends NodeAction = NodeAction> extends EventE
       },
       get: (_target, name: string) => {
         return async (...params: any) => {
-          this.request(name, ...params);
+          return this.invoke(name, ...params);
         };
       }
     });
@@ -123,7 +128,7 @@ export default class Transport<T extends NodeAction = NodeAction> extends EventE
    * 接收请求回调，返回到请求
    */
   private onRequestCallback() {
-    on('message-center-main', async (event, message: Message) => {
+    onHandler('message-center-main', async (event, message: Message) => {
       console.log('[RenderTransport] message-center-main', message.action || message.subject);
       // 寻找注册的方法
       if (message.action) {

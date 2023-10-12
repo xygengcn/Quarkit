@@ -32,6 +32,7 @@ export default class MainTransport {
      * 接受客户端的初始化事件
      */
     ipcMain.handle('message-center-render-init', (event, actionKeys: string[]) => {
+      console.log('[main] 客户端的初始化事件', actionKeys);
       actionKeys.forEach((key) => {
         this.renderActionsMap.set(key, new TransportSender(event.sender));
       });
