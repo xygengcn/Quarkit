@@ -1,13 +1,18 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import { debounce } from 'throttle-debounce';
 import './index.scss';
+import { useAppStore } from '@/store';
 export const MainSearchInput = defineComponent({
   name: 'MainSearchInput',
   setup() {
     // 关键词
     const keyword = ref('');
 
+    // 中文输入
     const composing = ref(false);
+
+    // store
+    const appStore = useAppStore();
 
     // 输入框
     const refInput = ref<HTMLInputElement>();
@@ -16,6 +21,7 @@ export const MainSearchInput = defineComponent({
     const handleInput = debounce(600, () => {
       if (!composing.value) {
         console.log('[输入]', keyword.value);
+        appStore.setSearchKeyword(keyword.value.trim());
       }
     });
 
@@ -35,7 +41,7 @@ export const MainSearchInput = defineComponent({
     });
     return () => (
       <div class="main-search-input">
-        <input ref={refInput} v-model={keyword.value} spellcheck={false} onInput={handleInput} onCompositionstart={onCompositionstart} onCompositionend={onCompositionend} />
+        <input ref={refInput} v-model={keyword.value} placeholder="你好，Quarkit" spellcheck={false} onInput={handleInput} onCompositionstart={onCompositionstart} onCompositionend={onCompositionend} />
       </div>
     );
   }

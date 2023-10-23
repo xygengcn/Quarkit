@@ -34,6 +34,10 @@
       cursor: text;
       color: #fff;
       -webkit-app-region: no-drag;
+
+      &::placeholder {
+        color: #ccc;
+      }
     }
   }
 }

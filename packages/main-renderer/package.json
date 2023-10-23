@@ -15,6 +15,7 @@
     "@types/node": "^20.8.0",
     "@types/throttle-debounce": "^5.0.0",
     "eventemitter3": "^5.0.1",
+    "pinia": "^2.1.7",
     "throttle-debounce": "^5.0.0",
     "vue": "^3.3.4"
   },
